@@ -10,12 +10,6 @@ A repository of components that are used throughout TastSpace apps with out-of-t
 npm run rollup
 ```
 
-### Publish the library
-
-```
-npm publish
-```
-
 ### Run tests
 
 ```
