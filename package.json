@@ -3,7 +3,7 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/PimButton"
   },
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "A component library for Studio Tast products",
   "scripts": {
     "rollup": "rollup -c",
@@ -59,7 +59,7 @@
   ],
   "types": "dist/index.d.ts",
   "dependencies": {},
-    "peerDependencies": {
+  "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }
