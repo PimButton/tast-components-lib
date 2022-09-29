@@ -36,8 +36,6 @@ npm version [major/minor/patch]
 
 ### publish
 
-Make sure to bump the version before publishing
-
 ```
-npm publish
+npm run publish-[major/minor/patch]
 ```

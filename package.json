@@ -9,7 +9,10 @@
     "rollup": "rollup -c",
     "test": "jest",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "publish-patch": "npm run rollup && npm version patch && npm publish",
+    "publish-minor": "npm run rollup && npm version minor && npm publish",
+    "publish-major": "npm run rollup && npm version major && npm publish"
   },
   "author": "PimButton",
   "license": "ISC",
