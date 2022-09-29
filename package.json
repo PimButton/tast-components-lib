@@ -12,8 +12,7 @@
     "build-storybook": "build-storybook",
     "publish-patch": "npm run rollup && npm version patch && npm publish",
     "publish-minor": "npm run rollup && npm version minor && npm publish",
-    "publish-major": "npm run rollup && npm version major && npm publish",
-    "chromatic": "npx chromatic --project-token=f2f539000c17"
+    "publish-major": "npm run rollup && npm version major && npm publish"
   },
   "author": {
     "name": "PimButton"
