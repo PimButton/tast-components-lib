@@ -1,0 +1,90 @@
+@mixin scrollBar {
+  /* Works on Firefox */
+  @supports (-moz-appearance: none) {
+    & {
+      scrollbar-width: thin;
+      scrollbar-color: hsl(210, 15%, 18%, 0.5) transparent;
+    }
+  }
+
+  /* Works on Chrome && Edge */
+  @media screen and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) {
+    &::-webkit-scrollbar {
+      width: 7px;
+      height: 7px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: hsl(210, 15%, 18%, 0.5);
+      border-radius: 8px;
+    }
+  }
+}
+
+.layout {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: 1fr 1fr;
+  height: 100%;
+  height: var(--app-height);
+  font-family: "canada-type-gibson", "gibson", sans-serif;
+
+  .left {
+    width: 100%;
+    height: 100%;
+    display: grid;
+  }
+
+  .right {
+    width: 100%;
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    overflow: auto;
+    @include scrollBar;
+
+    .content {
+      height: fit-content;
+      max-height: 100%;
+      width: 100%;
+      max-width: 480px;
+
+      .title {
+        margin-bottom: 45px;
+
+        h1 {
+          font-family: "Bilo", sans-serif;
+          font-size: 36px;
+        }
+      }
+
+      form {
+        display: grid;
+        gap: 3rem;
+
+        .inputs {
+          display: grid;
+          gap: 1.75rem;
+        }
+
+        .buttons {
+          display: grid;
+          gap: 1.5rem;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    grid-template-columns: 1fr;
+  }
+}

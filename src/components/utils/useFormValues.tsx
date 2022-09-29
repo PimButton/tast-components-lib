@@ -1,5 +1,7 @@
 const { useState } = require("react");
 
+export type FormValuesTypes = ReturnType<typeof useFormValues>;
+
 export function useFormValues<T>(initialValues: T): {
   formValues: T;
   handleChange: (

@@ -3,3 +3,7 @@
 ::after {
   box-sizing: border-box;
 }
+
+:root {
+  --app-height: calc(100vh - 2rem);
+}

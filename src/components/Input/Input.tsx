@@ -24,7 +24,7 @@ export function Input({
   const { onChange, formValues, errors } = useContext(FormContext);
 
   return (
-    <div className="wrapper">
+    <div className="input">
       {!!label && <label htmlFor={name}>{label}</label>}
       <input
         type={
