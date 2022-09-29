@@ -38,6 +38,7 @@
     "@types/react": "^18.0.21",
     "babel-jest": "^29.0.3",
     "babel-loader": "^8.2.5",
+    "chromatic": "^6.10.1",
     "css-loader": "^6.7.1",
     "html-webpack-plugin": "^5.5.0",
     "identity-obj-proxy": "^3.0.0",
