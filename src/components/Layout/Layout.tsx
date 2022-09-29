@@ -9,6 +9,7 @@ type Props = {
   inputs: React.ReactNode;
   buttons: React.ReactNode;
   handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+  forgotPasswordFunc?: () => void;
 };
 
 export function Layout({
@@ -17,6 +18,7 @@ export function Layout({
   inputs,
   buttons,
   handleSubmit,
+  forgotPasswordFunc,
 }: Props) {
   return (
     <>
@@ -31,7 +33,18 @@ export function Layout({
               {typeof title === "string" ? <h1>{title}</h1> : title}
             </div>
             <form onSubmit={handleSubmit}>
-              <div className="inputs">{inputs}</div>
+              <div
+                className={`inputs ${
+                  forgotPasswordFunc ? "with-forgot-password" : ""
+                }`}
+              >
+                {inputs}{" "}
+                {!!forgotPasswordFunc && (
+                  <div className="forgot-password" onClick={forgotPasswordFunc}>
+                    <p>Wachtwoord vergeten?</p>
+                  </div>
+                )}
+              </div>
               <div className="buttons">{buttons}</div>
             </form>
           </div>

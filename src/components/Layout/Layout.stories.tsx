@@ -7,7 +7,7 @@ import { Input } from "../Input/Input";
 import { useFormValues } from "../utils/useFormValues";
 
 const Inputs = () => {
-  const { formValues, handleChange, errors, setErrors } = useFormValues({
+  const { formValues, handleChange, errors } = useFormValues({
     email: "",
     password: "",
   });
@@ -33,9 +33,7 @@ export default {
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof Layout> = (args) => <Layout {...args} />;
 
-export const normal = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
-normal.args = {
+const baseProps = {
   authVisual: (
     <div
       style={{
@@ -65,8 +63,21 @@ normal.args = {
       </Button>
     </>
   ),
-  handleSubmit: (e) => {
+  handleSubmit: (e: any) => {
     e.preventDefault();
     console.log("submit");
   },
+};
+
+export const normal = Template.bind({});
+// More on args: https://storybook.js.org/docs/react/writing-stories/args
+normal.args = {
+  ...baseProps,
+};
+
+export const withForgotPassword = Template.bind({});
+
+withForgotPassword.args = {
+  ...baseProps,
+  forgotPasswordFunc: () => console.log("forgot password"),
 };
