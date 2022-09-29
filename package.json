@@ -12,9 +12,12 @@
     "build-storybook": "build-storybook",
     "publish-patch": "npm run rollup && npm version patch && npm publish",
     "publish-minor": "npm run rollup && npm version minor && npm publish",
-    "publish-major": "npm run rollup && npm version major && npm publish"
+    "publish-major": "npm run rollup && npm version major && npm publish",
+    "chromatic": "npx chromatic --project-token=f2f539000c17"
   },
-  "author": "PimButton",
+  "author": {
+    "name": "PimButton"
+  },
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.19.1",
@@ -66,5 +69,7 @@
   "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
-  }
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "@pimbutton/tast-components-lib@0.1.8"
 }
