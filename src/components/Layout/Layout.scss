@@ -28,10 +28,14 @@
 .layout {
   display: grid;
   justify-items: center;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   height: 100%;
   height: var(--app-height);
   font-family: "canada-type-gibson", "gibson", sans-serif;
+
+  @media screen and (min-width: 1024px) {
+    grid-template-columns: 1fr 1fr;
+  }
 
   .left {
     width: 100%;
@@ -48,9 +52,13 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 3rem;
     overflow: auto;
+    padding: 1rem 1rem;
     @include scrollBar;
+
+    @media screen and (min-width: 768px) {
+      padding: 1rem 3rem 1rem;
+    }
 
     .content {
       height: fit-content;
@@ -61,11 +69,15 @@
       .title {
         margin-bottom: 45px;
         display: grid;
-        grid-template-columns: 1fr auto;
         align-items: end;
+        gap: 0.25rem;
+
+        @media screen and (min-width: 768px) {
+          grid-template-columns: 1fr auto;
+        }
 
         p {
-          font-size: 18px;
+          font-size: 16px;
           margin-bottom: 0.25rem;
           cursor: pointer;
         }
@@ -116,9 +128,14 @@
         }
       }
     }
-  }
 
-  @media screen and (max-width: 1024px) {
-    grid-template-columns: 1fr;
+    .tast-cloud-description {
+      position: absolute;
+      font-weight: 300;
+      color: #b4bac3;
+      font-size: 14px;
+      max-width: 480px;
+      align-self: end;
+    }
   }
 }

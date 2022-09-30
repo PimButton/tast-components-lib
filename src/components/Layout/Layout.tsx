@@ -1,5 +1,5 @@
 // Components==============
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./Layout.scss";
 // =========================
 
@@ -26,6 +26,33 @@ export function Layout({
   color,
   lang = "nl",
 }: Props) {
+  const [absolute, setAbsolute] = useState(false);
+
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const descriptionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const scrollHeight = scrollRef.current?.clientHeight || 0;
+      const contentHeight = contentRef.current?.clientHeight || 0;
+      const descriptionHeight = descriptionRef.current?.clientHeight || 0;
+      const margin = 145;
+
+      if (scrollHeight - contentHeight - descriptionHeight - margin < 0)
+        return setAbsolute(false);
+      setAbsolute(true);
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <>
       <style type="text/css">
@@ -33,8 +60,8 @@ export function Layout({
       </style>
       <div className="layout">
         <div className="left">{authVisual}</div>
-        <div className="right ">
-          <div className="content">
+        <div className="right " ref={scrollRef}>
+          <div className="content" ref={contentRef}>
             <div className="title">
               <h1>{title}</h1>
               {!!MakeAccountFunc && (
@@ -71,6 +98,18 @@ export function Layout({
               <div className="buttons">{buttons}</div>
             </form>
           </div>
+          <p
+            className="tast-cloud-description"
+            ref={descriptionRef}
+            style={{
+              position: absolute ? "absolute" : "initial",
+              marginTop: absolute ? 0 : "2rem",
+            }}
+          >
+            {lang === "nl"
+              ? "De Tast.Cloud is een cloudservice waarmee je met één account laagdrempelig, veilig en gebruiksvriendelijk kunt werken met de digitale omgevingen van Groow, Klik, Unblok en Groow Business."
+              : "The Tast.Cloud is a clouds service with which you can easily, safely and user-friendly work with the digital environments of Groow, Klik, Unblok and Groow Business with one account."}
+          </p>
         </div>
       </div>
     </>
