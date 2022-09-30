@@ -5,11 +5,14 @@ import "./Layout.scss";
 
 type Props = {
   authVisual: React.ReactNode;
-  title: string | React.ReactNode;
+  title: string;
   inputs: React.ReactNode;
   buttons: React.ReactNode;
   handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
   forgotPasswordFunc?: () => void;
+  MakeAccountFunc?: () => void;
+  color?: string;
+  lang?: "nl" | "en";
 };
 
 export function Layout({
@@ -19,6 +22,9 @@ export function Layout({
   buttons,
   handleSubmit,
   forgotPasswordFunc,
+  MakeAccountFunc,
+  color,
+  lang = "nl",
 }: Props) {
   return (
     <>
@@ -30,7 +36,20 @@ export function Layout({
         <div className="right ">
           <div className="content">
             <div className="title">
-              {typeof title === "string" ? <h1>{title}</h1> : title}
+              <h1>{title}</h1>
+              {!!MakeAccountFunc && (
+                <div onClick={MakeAccountFunc}>
+                  {lang === "nl" ? (
+                    <p style={{ color }}>
+                      <span>of</span> maak gratis een account aan
+                    </p>
+                  ) : (
+                    <p style={{ color }}>
+                      <span>Or</span> make a free account
+                    </p>
+                  )}
+                </div>
+              )}
             </div>
             <form onSubmit={handleSubmit}>
               <div
@@ -41,7 +60,11 @@ export function Layout({
                 {inputs}{" "}
                 {!!forgotPasswordFunc && (
                   <div className="forgot-password" onClick={forgotPasswordFunc}>
-                    <p>Wachtwoord vergeten?</p>
+                    {lang === "nl" ? (
+                      <p>Wachtwoord vergeten?</p>
+                    ) : (
+                      <p>Forgot password?</p>
+                    )}
                   </div>
                 )}
               </div>

@@ -81,3 +81,10 @@ withForgotPassword.args = {
   ...baseProps,
   forgotPasswordFunc: () => console.log("forgot password"),
 };
+
+export const withRegister = Template.bind({});
+withRegister.args = {
+  ...baseProps,
+  MakeAccountFunc: () => console.log("register"),
+  color: "#1ea7fd",
+};
