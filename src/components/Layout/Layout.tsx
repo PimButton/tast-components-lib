@@ -37,7 +37,7 @@ export function Layout({
       const scrollHeight = scrollRef.current?.clientHeight || 0;
       const contentHeight = contentRef.current?.clientHeight || 0;
       const descriptionHeight = descriptionRef.current?.clientHeight || 0;
-      const margin = 145;
+      const margin = 175;
 
       if (scrollHeight - contentHeight - descriptionHeight - margin < 0)
         return setAbsolute(false);
@@ -103,7 +103,7 @@ export function Layout({
             ref={descriptionRef}
             style={{
               position: absolute ? "absolute" : "initial",
-              marginTop: absolute ? 0 : "2rem",
+              marginTop: absolute ? 0 : "3rem",
             }}
           >
             {lang === "nl"
