@@ -1,5 +1,5 @@
 // Components==============
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import "./Layout.scss";
 // =========================
 
@@ -32,7 +32,7 @@ export function Layout({
   const contentRef = useRef<HTMLDivElement>(null);
   const descriptionRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const handleResize = () => {
       const scrollHeight = scrollRef.current?.clientHeight || 0;
       const contentHeight = contentRef.current?.clientHeight || 0;
