@@ -61,7 +61,11 @@ export function Layout({
       <div className="layout">
         <div className="left">{authVisual}</div>
         <div className="right " ref={scrollRef}>
-          <div className="content" ref={contentRef}>
+          <div
+            className="content"
+            ref={contentRef}
+            style={{ transform: absolute ? "translateY(-2rem)" : "" }}
+          >
             <div className="title">
               <h1>{title}</h1>
               {!!MakeAccountFunc && (
