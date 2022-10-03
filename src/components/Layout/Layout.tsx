@@ -26,7 +26,7 @@ export function Layout({
   color,
   lang = "nl",
 }: Props) {
-  const [absolute, setAbsolute] = useState(false);
+  const [spanHeight, setSpanHeight] = useState(false);
 
   const scrollRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -40,8 +40,8 @@ export function Layout({
       const margin = 175;
 
       if (scrollHeight - contentHeight - descriptionHeight - margin < 0)
-        return setAbsolute(false);
-      setAbsolute(true);
+        return setSpanHeight(false);
+      setSpanHeight(true);
     };
 
     handleResize();
@@ -62,9 +62,8 @@ export function Layout({
         <div className="left">{authVisual}</div>
         <div className="right " ref={scrollRef}>
           <div
-            className="content"
+            className={`content ${spanHeight ? "span-height" : ""}`}
             ref={contentRef}
-            style={{ transform: absolute ? "translateY(-2rem)" : "" }}
           >
             <div className="title">
               <h1>{title}</h1>
@@ -102,14 +101,7 @@ export function Layout({
               <div className="buttons">{buttons}</div>
             </form>
           </div>
-          <p
-            className="tast-cloud-description"
-            ref={descriptionRef}
-            style={{
-              position: absolute ? "absolute" : "initial",
-              marginTop: absolute ? 0 : "3rem",
-            }}
-          >
+          <p className="tast-cloud-description" ref={descriptionRef}>
             {lang === "nl"
               ? "De Tast.Cloud is een cloudservice waarmee je met één account laagdrempelig, veilig en gebruiksvriendelijk kunt werken met de digitale omgevingen van Groow, Klik, Unblok en Groow Business."
               : "The Tast.Cloud is a clouds service with which you can easily, safely and user-friendly work with the digital environments of Groow, Klik, Unblok and Groow Business with one account."}
