@@ -1,5 +1,5 @@
 // Components==============
-import React, { createContext, useLayoutEffect, useRef, useState } from "react";
+import React, { useLayoutEffect, useRef, useState } from "react";
 import "./Layout.scss";
 // =========================
 
@@ -37,7 +37,7 @@ export function Layout({
       const scrollHeight = scrollRef.current?.clientHeight || 0;
       const contentHeight = contentRef.current?.clientHeight || 0;
       const descriptionHeight = descriptionRef.current?.clientHeight || 0;
-      const margin = 175;
+      const margin = 285;
 
       if (scrollHeight - contentHeight - descriptionHeight - margin < 0)
         return setSpanHeight(false);
