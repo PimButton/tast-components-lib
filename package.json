@@ -3,7 +3,7 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/PimButton"
   },
-  "version": "0.1.21",
+  "version": "0.1.22",
   "description": "A component library for Studio Tast products",
   "scripts": {
     "rollup": "rollup -c",
