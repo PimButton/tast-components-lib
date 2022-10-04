@@ -1,5 +1,5 @@
 // Components==============
-import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
+import React, { createContext, useLayoutEffect, useRef, useState } from "react";
 import "./Layout.scss";
 // =========================
 
@@ -14,6 +14,12 @@ type Props = {
   color?: string;
   lang?: "nl" | "en";
 };
+
+type LangContextType = {
+  lang: "nl" | "en";
+};
+
+export const LangContext = createContext({} as LangContextType);
 
 export function Layout({
   authVisual,
@@ -59,7 +65,9 @@ export function Layout({
         @import url('https://use.typekit.net/mjl2cdr.css');
       </style>
       <div className="layout">
-        <div className="left">{authVisual}</div>
+        <LangContext.Provider value={{ lang: lang || "nl" }}>
+          <div className="left">{authVisual}</div>
+        </LangContext.Provider>
         <div className="right " ref={scrollRef}>
           <div
             className={`content ${spanHeight ? "span-height" : ""}`}
