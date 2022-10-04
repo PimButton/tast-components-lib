@@ -31,6 +31,29 @@
   font-family: "canada-type-gibson", "gibson", sans-serif;
   grid-template-rows: 135px 1fr;
 
+  // Mini reset
+  *,
+  ::before,
+  ::after {
+    box-sizing: border-box;
+  }
+
+  p,
+  h1,
+  h2,
+  h3 {
+    margin: 0;
+    padding: 0;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-style: none;
+  }
+  //
+
   @media screen and (min-width: 1024px) {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: initial;
