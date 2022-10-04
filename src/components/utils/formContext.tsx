@@ -27,7 +27,7 @@ export function FormContextWrapper({
       formValues,
       setFormValues,
     }),
-    [errors.length, formValues]
+    [errors, formValues]
   );
 
   return (
