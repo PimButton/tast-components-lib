@@ -15,12 +15,6 @@ type Props = {
   lang?: "nl" | "en";
 };
 
-type LangContextType = {
-  lang: "nl" | "en";
-};
-
-export const LangContext = createContext({} as LangContextType);
-
 export function Layout({
   authVisual,
   title,
@@ -65,9 +59,7 @@ export function Layout({
         @import url('https://use.typekit.net/mjl2cdr.css');
       </style>
       <div className="layout">
-        <LangContext.Provider value={{ lang: lang || "nl" }}>
-          <div className="left">{authVisual}</div>
-        </LangContext.Provider>
+        <div className="left">{authVisual}</div>
         <div className="right " ref={scrollRef}>
           <div
             className={`content ${spanHeight ? "span-height" : ""}`}
