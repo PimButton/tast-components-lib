@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { Bars, Cog, Logout, Th } from "./icons";
 import TastSpace from "./TastSpace/TastSpace";
-import "./TopNav.module.scss";
+import "./TopNav.scss";
 // =========================
 
 export function TopNav({
