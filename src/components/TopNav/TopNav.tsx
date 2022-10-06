@@ -11,12 +11,14 @@ export function TopNav({
   userInfo,
   handleProfileClick,
   handleLogout,
+  items,
 }: {
   setHamburgerNavOpen: React.Dispatch<React.SetStateAction<boolean>>;
   image: string;
   userInfo: React.ReactNode;
   handleProfileClick: () => void;
   handleLogout: () => void;
+  items?: React.ReactNode;
 }) {
   const [displayTastSpace, setDisplayTastSpace] = useState(false);
 
@@ -29,6 +31,8 @@ export function TopNav({
         <Bars />
       </div>
       <div className="right">
+        {/* Other items */}
+        {items}
         {/* tastspace */}
         <div
           onClick={() => setDisplayTastSpace((prev) => !prev)}
