@@ -1,0 +1,95 @@
+.top-nav {
+  position: relative;
+  width: 100%;
+  height: 60px;
+  border-top: #ececec 1px solid;
+  border-bottom: #ececec 1px solid;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  background-color: white;
+
+  @media screen and (min-width: 1024px) {
+    grid-template-columns: 1fr;
+    .icon {
+      &.hamburger {
+        display: none;
+      }
+    }
+  }
+
+  .right {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: end;
+  }
+
+  .icon {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 100%;
+    cursor: pointer;
+    justify-items: center;
+    transition: 0.2s;
+    position: relative;
+
+    &:hover {
+      background: #f2f2f2;
+    }
+
+    &.open {
+      background: #f2f2f2;
+    }
+
+    &.left {
+      border-left: #ececec 1px solid;
+    }
+
+    &.right {
+      border-right: #ececec 1px solid;
+    }
+
+    &.large {
+      grid-template-columns: 1fr 1fr;
+      width: 120px;
+
+      @media screen and (min-width: 768px) {
+        width: initial;
+        padding: 0 1rem;
+        grid-template-columns: initial;
+        grid-auto-flow: column;
+        gap: 1.5rem;
+      }
+    }
+  }
+
+  .tast-cloud {
+    display: none;
+    @media screen and (min-width: 768px) {
+      display: grid;
+    }
+  }
+
+  .user {
+    grid-auto-flow: column;
+    gap: 0.75rem;
+    display: grid;
+
+    img {
+      width: 35px;
+      height: 35px;
+      border-radius: 100%;
+    }
+
+    .user-info {
+      display: none;
+      @media screen and (min-width: 768px) {
+        display: grid;
+        gap: 0.25rem;
+        align-items: center;
+        align-content: center;
+      }
+    }
+  }
+}

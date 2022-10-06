@@ -28,6 +28,9 @@ const Inputs = () => {
 export default {
   title: "Auth-Components/Layout",
   component: Layout,
+  parameters: {
+    layout: "fullscreen",
+  },
 } as ComponentMeta<typeof Layout>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
