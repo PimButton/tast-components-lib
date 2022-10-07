@@ -1,7 +1,6 @@
 // Components==============
 import React, { useState } from "react";
-import { Bars, Cog, Logout, Th } from "./icons";
-import TastSpace from "./TastSpace/TastSpace";
+import { Bars, Cog, Logout } from "./icons";
 import "./TopNav.scss";
 // =========================
 
@@ -20,7 +19,7 @@ export function TopNav({
   handleLogout: () => void;
   items?: React.ReactNode;
 }) {
-  const [displayTastSpace, setDisplayTastSpace] = useState(false);
+  // const [displayTastSpace, setDisplayTastSpace] = useState(false);
 
   return (
     <div className="top-nav">
@@ -33,14 +32,14 @@ export function TopNav({
       <div className="right">
         {/* Other items */}
         {items}
-        {/* tastspace */}
+        {/* tastspace
         <div
           onClick={() => setDisplayTastSpace((prev) => !prev)}
           className={`icon left tast-cloud ${displayTastSpace ? "open" : ""}`}
         >
-          <Th />
+          <Grid />
           {displayTastSpace && <TastSpace />}
-        </div>
+        </div> */}
         {/* settings */}
         <div onClick={handleProfileClick} className="icon large left">
           <div className="user">
