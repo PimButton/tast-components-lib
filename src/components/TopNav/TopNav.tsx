@@ -13,7 +13,7 @@ export function TopNav({
   items,
 }: {
   setHamburgerNavOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  image: string;
+  image: string | React.ReactNode;
   userInfo: React.ReactNode;
   handleProfileClick: () => void;
   handleLogout: () => void;
@@ -43,7 +43,12 @@ export function TopNav({
         {/* settings */}
         <div onClick={handleProfileClick} className="icon large left">
           <div className="user">
-            <img src={image} alt="avatar" />
+            {typeof image === "string" ? (
+              <img src={image} alt="avatar" />
+            ) : (
+              image
+            )}
+
             <div className="user-info">{userInfo}</div>
           </div>
           <Cog />
