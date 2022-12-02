@@ -1,5 +1,61 @@
 .tast-space {
   position: absolute;
+  cursor: initial;
   display: grid;
-  bottom: -100px;
+  gap: 0.5rem;
+  top: 75px;
+  box-shadow: 0px 5px 15px 3px rgba(0, 0, 0, 0.16);
+  border-radius: 14px;
+  min-width: 237px;
+  max-width: 237px;
+  padding: 10px;
+
+  .my-tast-cloud {
+    font-family: "canada-type-gibson", "gibson", sans-serif;
+    background-color: #f9f9f9;
+    font-size: 14px;
+    font-weight: 300;
+    padding: 20px 0px;
+    display: grid;
+    justify-content: center;
+    grid-auto-flow: column;
+    gap: 0.5rem;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: 0.2s;
+    transition-property: background-color;
+
+    &:hover {
+      * {
+        fill: #ffffff;
+      }
+      color: #ffffff;
+      background-color: #2a3139;
+    }
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+
+    .item {
+      display: grid;
+      justify-items: center;
+      align-content: center;
+      padding: 0px 10px;
+      height: 104px;
+      background-color: #f9f9f9;
+      border-radius: 7px;
+      cursor: pointer;
+      transition: 0.2s;
+
+      &:hover {
+        * {
+          fill: #ffffff;
+        }
+        background-color: #2a3139;
+      }
+    }
+  }
 }
