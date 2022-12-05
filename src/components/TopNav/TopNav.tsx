@@ -21,6 +21,7 @@ export function TopNav({
   items?: React.ReactNode;
 }) {
   const [displayTastSpace, setDisplayTastSpace] = useState(false);
+  const wrapperRef = React.useRef<HTMLDivElement>(null);
 
   return (
     <div className="top-nav">
@@ -37,9 +38,15 @@ export function TopNav({
         <div
           onClick={() => setDisplayTastSpace((prev) => !prev)}
           className={`icon left tast-cloud ${displayTastSpace ? "open" : ""}`}
+          ref={wrapperRef}
         >
           <Grid />
-          {displayTastSpace && <TastSpace />}
+          {displayTastSpace && (
+            <TastSpace
+              setDisplay={setDisplayTastSpace}
+              wrapperRef={wrapperRef}
+            />
+          )}
         </div>
         {/* settings */}
         <div onClick={handleProfileClick} className="icon large left">

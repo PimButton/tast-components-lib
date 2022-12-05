@@ -1,5 +1,6 @@
 // Components==============
-import React from "react";
+import React, { useRef } from "react";
+import { useOnClickOutside } from "../../utils/useOnClickOutside";
 import { Groow, GroowBusiness, Klik, TastCloud, Unblok } from "./Logos";
 import "./TastSpace.scss";
 // =========================
@@ -13,9 +14,21 @@ const links = [
   "https://unblok.tast.cloud",
 ];
 
-export default function TastSpace() {
+export default function TastSpace({
+  setDisplay,
+  wrapperRef,
+}: {
+  setDisplay: React.Dispatch<React.SetStateAction<boolean>>;
+  wrapperRef: React.MutableRefObject<HTMLDivElement | null>;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  useOnClickOutside({
+    handler: () => setDisplay(false),
+    refs: [ref, wrapperRef],
+  });
+
   return (
-    <div className="tast-space">
+    <div className="tast-space" ref={ref}>
       <a
         className="my-tast-cloud"
         href="https://tast.cloud"
