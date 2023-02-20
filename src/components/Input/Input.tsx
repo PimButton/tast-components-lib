@@ -42,7 +42,14 @@ export function Input({
         placeholder={placeholder}
         disabled={disabled}
       />
-      {errors?.[name][0] ? <p className="error">{errors?.[name][0]}</p> : null}
+      {errors?.[name][0] ? (
+        <p
+          dangerouslySetInnerHTML={{ __html: errors?.[name][0] }}
+          className="error"
+        >
+          {}
+        </p>
+      ) : null}
     </div>
   );
 }
