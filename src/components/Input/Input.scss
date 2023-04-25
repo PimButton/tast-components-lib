@@ -41,8 +41,11 @@
     }
 
     &[disabled] {
-      background: #f7f7f7;
-      color: #ececec;
+      background: #ececec;
+
+      &::placeholder {
+        color: #9398a0;
+      }
     }
   }
 
